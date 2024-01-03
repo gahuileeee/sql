@@ -87,3 +87,21 @@ values ('A105', '이순신', 'M', '010-1234-5555','부산시 진구');
 insert into `user4` values ('A106', '신사임당', 'F', '32', null,'강릉시');
 insert into `user4` values ('A107', '허난설현', 'F', '27', null ,'경기도 광주시');
 select * from `user4`;
+
+# 실습 : 3-7 (check, auto_Increment)
+create table `user5` (
+	`seq`		int primary key auto_increment, 
+    `name`		varchar(10) not null,
+    `gender`	char(1) check (`gender`in('M','F')), #범주를 검사
+    `age`		int default 1 check(`age` >0 and `age` < 100),  #범위를 검사
+    `addr`		varchar(20)
+);
+drop table `user5`;
+
+insert into `user5` (`name`,`gender`,`age`,`addr`)values ('김유신','M','25','경남 김해시');
+insert into `user5` values ('김춘추','M','23','경남 경주시');
+insert into `user5` values ('장보고','M','35','전남 완도시');
+insert into `user5` values ('강감찬','M','42','서울시 관악구');
+insert into `user5` values ('이순신','A','51','부산시');   #입력 안됨 (check에서 걸림)
+insert into `user5` values ('신사임당','F','-1','강릉시');  #입력 안됨 (check에서 걸림)
+select * from `user5`;
