@@ -86,7 +86,7 @@ select distinct company from product;
 select prodname, price from product;
 
 #실습 1-10 제품 테이블에서 제품명과 단가를 조회하되, 단가에 500원을 더해 조정단가로 출력하시오
-select prodname, price+500 as 조정단가 from product;
+select prodname, pricekeywardskeywards+500 as 조정단가 from product;
 
 #실습 1-11 제품 테이블에서 오리온이 제조판 제품의 제품명, 재고량, 단가를 조회하시오
 select `prodname`, stock, price from `product` where company='오리온';
