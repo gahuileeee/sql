@@ -105,6 +105,7 @@ if (regtotalscore>=80, 'B',
 if (regtotalscore>=70, 'C',
 if (regtotalscore>=60, 'D','F'))));
 
+
 -- 2학년 학생의 학번, 이름, 학년, 수강, 강좌명, 중간점수, 기말점수, 총합, 등급을 조회하시오.
 select stdNo, stdName, stdYear, lecName, regMidscore, regFinalScore,
 regtotalscore, regGrade from student as a join register as b on a.stdno=b.regStdNo
