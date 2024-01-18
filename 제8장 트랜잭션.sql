@@ -36,3 +36,10 @@ update bank_account set a_balance = a_balance -10000 where a_no='101-11-1001';
 #업데이트 등을 했을 때 자동 commit이어서 rollback 해도 값이 이미 반영되어 원래 상태로 돌아가지 않음
 select * from bank_account;
 rollback;
+
+# 실습 8-4 Lock & UnLock 병행제어 실습 by root
+select * from bank_account;
+start transaction;
+update bank_account
+	set a_balance = a_balance - 10000 where a_no = '101-11-1001';
+commit;
